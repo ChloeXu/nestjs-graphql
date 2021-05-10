@@ -9,11 +9,21 @@ input CreateRecipeInput {
   """Recipe ID"""
   id: Int!
 
+  """Ingredients"""
+  ingredients: [IngredientInput]!
+
   """Recipe Name"""
   name: String!
 }
 
 type Ingredient {
+  id: Int!
+  name: String
+  quantity: Int!
+  unit: String
+}
+
+input IngredientInput {
   id: Int!
   name: String
   quantity: Int!
@@ -34,7 +44,7 @@ type Query {
 type Recipe {
   cuisine: String!
   id: Int!
-  ingredients: [Ingredient]!
+  ingredients: [Ingredient!]!
   name: String!
 }
 
@@ -42,6 +52,9 @@ input UpdateRecipeInput {
   """Cuisine"""
   cuisine: String
   id: Int!
+
+  """Ingredients"""
+  ingredients: [IngredientInput!]
 
   """Recipe Name"""
   name: String

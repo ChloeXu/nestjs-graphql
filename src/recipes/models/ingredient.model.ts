@@ -1,5 +1,6 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Field, InputType, Int, ObjectType } from '@nestjs/graphql';
 
+@InputType('IngredientInput')
 @ObjectType()
 export class Ingredient {
   @Field(() => Int)

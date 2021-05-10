@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { CreateRecipeInput } from './dto/create-recipe.input';
-import { UpdateRecipeInput } from './dto/update-recipe.input';
-import { Recipe } from './models/recipe.model';
+import { CreateRecipeInput } from '../../dto/create-recipe.input';
+import { UpdateRecipeInput } from '../../dto/update-recipe.input';
+import { Recipe } from '../../models/recipe.model';
 
 @Injectable()
 export class RecipesService {
@@ -12,7 +12,7 @@ export class RecipesService {
     if (this.ids.includes(createRecipeInput.id)) {
       throw Error('Recipe id already exists');
     }
-    const recipe: Recipe = { ...createRecipeInput, ...{ ingredients: [] } };
+    const recipe: Recipe = { ...createRecipeInput };
     this.ids.push(recipe.id);
     this.recipes.push(recipe);
     return recipe;

@@ -1,4 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
+import { Ingredient } from '../models/ingredient.model';
 
 @InputType()
 export class CreateRecipeInput {
@@ -11,6 +12,6 @@ export class CreateRecipeInput {
   @Field({ description: 'Cuisine', nullable: false })
   cuisine: string;
 
-  // @Field(() => [Ingredient], { description: 'Ingredients', nullable: 'items' })
-  // ingredients: Ingredient[];
+  @Field(() => [Ingredient], { description: 'Ingredients', nullable: 'items' })
+  ingredients: Ingredient[];
 }
